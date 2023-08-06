@@ -6,6 +6,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { Provider } from 'react-redux';
+import {store} from './REDUX/store';
 
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
@@ -33,8 +35,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <StoreProvider>
-        <Nav />
-        <Outlet />
+        <Provider store={store}>
+          <Nav />
+          <Outlet />
+        </Provider>
       </StoreProvider>
     </ApolloProvider>
   );

@@ -1,37 +1,21 @@
-import { useStoreContext } from "../../utils/GlobalState";
-import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
-import { idbPromise } from "../../utils/helpers";
-
+import { useDispatch, useSelector } from 'react-redux';
+import { updateCartQuantity, setCart } from '../../REDUX/Slice/Cart';
 const CartItem = ({ item }) => {
+  const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state.cart);
 
-  const [, dispatch] = useStoreContext();
 
-  const removeFromCart = item => {
-    dispatch({
-      type: REMOVE_FROM_CART,
-      _id: item._id
-    });
-    idbPromise('cart', 'delete', { ...item });
-
+  const removeFromCartt = (itemm) => {
+    dispatch(setCart(cart.filter((cartItem) => cartItem.item._id !== itemm._id)))
   };
 
   const onChange = (e) => {
     const value = e.target.value;
     if (value === '0') {
-      dispatch({
-        type: REMOVE_FROM_CART,
-        _id: item._id
-      });
-      idbPromise('cart', 'delete', { ...item });
+      dispatch(setCart(cart.filter((cartItem) => cartItem.item._id !== item.item._id)));
 
     } else {
-      dispatch({
-        type: UPDATE_CART_QUANTITY,
-        _id: item._id,
-        purchaseQuantity: parseInt(value)
-      });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: parseInt(value) });
-
+      dispatch(updateCartQuantity({ item:item.item, purchaseQuantity: parseInt(value) }))
     }
   }
 
@@ -39,12 +23,12 @@ const CartItem = ({ item }) => {
     <div className="flex-row">
       <div>
         <img
-          src={`/images/${item.image}`}
+          src={`/images/${item.item.image}`}
           alt=""
         />
       </div>
       <div>
-        <div>{item.name}, ${item.price}</div>
+        <div>{item.item.name}, ${item.item.price}</div>
         <div>
           <span>Qty:</span>
           <input
@@ -56,7 +40,7 @@ const CartItem = ({ item }) => {
           <span
             role="img"
             aria-label="trash"
-            onClick={() => removeFromCart(item)}
+            onClick={() => removeFromCartt(item.item)}
           >
             🗑️
           </span>

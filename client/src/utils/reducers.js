@@ -80,10 +80,12 @@ export const reducer = (state, action) => {
       };
 
     case UPDATE_CURRENT_CATEGORY:
-      return {
-        ...state,
-        currentCategory: action.currentCategory,
-      };
+      console.log(action.currentCategory)
+      // return {
+      //   ...state,
+      //   currentCategory: action.currentCategory,
+      //   console.log(action.currentCategory)
+      // };
 
     // TODO: Add a comment describing what the default case is for
     // Your comment here
