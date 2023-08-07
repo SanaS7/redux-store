@@ -29,7 +29,7 @@ This is a small e-commerce store built with React.js and Redux Toolkit for manag
 1. Clone the repository.
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/SanaS7/redux-store.git
 ```
 2. Install dependencies for both the client and server.
 
@@ -92,3 +92,10 @@ The project is organized into the following structure:
 └── ...
 
 ```
+### Images
+
+<img src="https://raw.githubusercontent.com/SanaS7/redux-store/main/Capture.PNG" alt="alt text" width="800px" height="400px">
+<img src="https://raw.githubusercontent.com/SanaS7/redux-store/main/ewew.PNG" alt="alt text" width="800px" height="400px">
+<img src="https://raw.githubusercontent.com/SanaS7/redux-store/main/sd.PNG" alt="alt text" width="800px" height="400px">
+<img src="https://raw.githubusercontent.com/SanaS7/redux-store/main/wq.PNG" alt="alt text" width="800px" height="400px">
+
