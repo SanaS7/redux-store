@@ -63,7 +63,7 @@ The server will start running at http://localhost:3000.
 
 ### Deployment
 The application is deployed on Heroku. You can access it using the following URL:
-[linkhere](linkhere)
+[linkhere](https://my-redux-store-mern-55daed3946a0.herokuapp.com/)
 
 ### Folder Structure
 The project is organized into the following structure:
